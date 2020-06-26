@@ -1,0 +1,6 @@
+2020/06/26 00:39:54 [emerg] 6464#6020: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2020/06/26 00:40:12 [emerg] 3256#3944: bind() to 0.0.0.0:80 failed (10013: An attempt was made to access a socket in a way forbidden by its access permissions)
+2020/06/26 00:45:13 [error] 3236#3912: *1 CreateFile() "C:\local\nginx/html/favicon.ico" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+2020/06/26 00:48:27 [error] 3236#3912: *4 CreateFile() "C:\local\nginx/html/static/fonts/d459925d3c4443798a8a5c47e81dacfa.woff" failed (2: The system cannot find the file specified), client: 127.0.0.1, server: localhost, request: "GET /static/fonts/d459925d3c4443798a8a5c47e81dacfa.woff HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/static/css/base.css"
+2020/06/26 00:56:02 [notice] 2688#6660: signal process started
+2020/06/26 00:57:39 [notice] 3556#6528: signal process started

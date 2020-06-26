@@ -1,0 +1,21 @@
+﻿@charset "utf-8";
+
+@font-face {
+	font-family: "Berlin Sans FB";
+	src: url(../fonts/brlnsr.ttf);
+}
+@font-face {
+	font-family: "Berlin Sans FB";
+	font-weight: bold;
+	src: url(../fonts/brlnsdb.ttf);
+}
+
+@font-face {
+	font-family: "方正综艺简体";
+	src: url(../fonts/方正综艺简体.ttf);
+}
+
+@font-face {
+	font-family: "DIN";
+	src: url(/fonts/DIN-Medium.otf);
+}

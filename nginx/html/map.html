@@ -1,0 +1,80 @@
+<!--
+ * @Author: your name
+ * @Date: 2020-06-02 17:08:55
+ * @LastEditTime: 2020-06-16 18:43:30
+ * @LastEditors: Please set LastEditors
+ * @Description: In User Settings Edit
+ * @FilePath: \officialWebsite\map.html
+-->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body,
+        html,
+        #allmap {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            margin: 0;
+            font-family: "微软雅黑";
+        }
+    </style>
+    <script type="text/javascript" src="//api.map.baidu.com/api?type=webgl&v=1.0&ak=IEZq2eXmxoEFGiuHkbDzeigkQUzqtBfp">
+    </script>
+    <script type="text/javascript" src="static/js/jquery.js"></script>
+    <script src="static/js/vue.js"></script>
+    <script src="static/js/axios.min.js"></script>
+    <script src="request/request.js"></script>
+    <script src="request/api.js"></script>
+    <!-- <script src="/request/index.js"></script> -->
+    <script src="request/wbconfig.js"></script>
+
+    <title>添加信息窗口</title>
+</head>
+
+<body>
+    <div id="allmap"></div>
+</body>
+
+</html>
+<script type="text/javascript">
+$(function () {
+
+
+
+getWbconfig({}).then(res => {
+    console.log(res)
+    $('.companyName').html(res.data.companyName)
+    $('.address').html('地址：' + res.data.address)
+    $('.phone').html('电话：' + res.data.phone)
+    $('.website').html(`<a href='${res.data.website}'>官网：${res.data.website}</a>`)
+    $('.email').html('邮箱：' + res.data.email)
+    $('.cyNameAndYear').html(2020 + ' ' + res.data.companyName)
+ // 百度地图API功能
+ var map = new BMapGL.Map("allmap");
+    var point = new BMapGL.Point(res.data.longitude, res.data.latitude);
+    map.centerAndZoom(point, 15);
+
+    var marker = new BMapGL.Marker(point); // 创建标注
+    map.addOverlay(marker); // 将标注添加到地图中
+    var opts = {
+        width: 200, // 信息窗口宽度
+        height: 20, // 信息窗口高度
+        title: '', // 信息窗口标题
+        message: res.data.companyName
+    }
+
+    var infoWindow = new BMapGL.InfoWindow(res.data.address, opts); // 创建信息窗口对象 
+    map.openInfoWindow(infoWindow, point); //开启信息窗口
+
+    // marker.addEventListener("click", function(){          
+    // 	map.openInfoWindow(infoWindow, point); //开启信息窗口
+    // }); 
+})
+})
+   
+</script>
