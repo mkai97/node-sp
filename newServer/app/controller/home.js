@@ -1,5 +1,5 @@
 'use strict';
-
+import util from '../util/util'
 const Controller = require('egg').Controller;
 
 class HomeController extends Controller {
